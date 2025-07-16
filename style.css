@@ -1,0 +1,366 @@
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* optional: if you want to avoid scrollbars */
+}
+
+table{
+  margin:20px 20px;
+}
+
+
+
+/* Navigation styles */
+nav {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: rgb(151, 27, 27);
+  color: white;
+}
+
+nav img {
+  width: 70px;
+  height: auto;
+}
+
+nav h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: yellow;
+  font-size: 18px;
+}
+
+/* Optional animated span */
+span {
+  position: relative;
+  left: -100vw;
+  animation: ride 10s infinite;
+}
+
+/* Slider styles (optional section) */
+.slider {
+  display: grid;
+  grid-template-rows: repeat(6, 12.5%);
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  white-space: nowrap;
+}
+
+.slides img {
+  border: 2px solid pink;
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+}
+.slides {
+  position: relative;
+  animation: slide 10s linear infinite;
+}
+
+/* Keyframes */
+@keyframes slide {
+  0%   { transform: translateX(0%); }
+  33%  { transform: translateX(-100%); }
+  66%  { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes ride {
+  0%   { left: -100vw; }
+  33%  { left: -60vw; }
+  100% { left: 100vw; }
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .options {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav h1 {
+    position: static;
+    transform: none;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  nav img {
+    position: static;
+    width: 60px;
+  }
+
+  span {
+    left: 0;
+    animation: ride 10s infinite;
+  }
+
+  .slider {
+    grid-template-rows: repeat(8, 12.5%);
+  }
+}
+
+/* Responsive styles for phones */
+@media (max-width: 500px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .options {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav h1 {
+    position: static;
+    transform: none;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  nav img {
+    position: static;
+    width: 60px;
+  }
+
+  span {
+    left: 0;
+    animation: ride 10s infinite;
+  }
+}
+
+@keyframes slide {
+  0%   { left: -10vw; }   /* Start way off-screen left */
+  50%  { left: 1vw; }    /* Slide completely to off-screen right */
+  100% { left: -10vw; }   /* Loop back to start */
+}
+
+.order {
+  display:flex;
+  justify-content: center;
+  align-items: center; /* optional: vertically center if there's height */
+  padding: 20px; /* optional spacing */
+  margin-top:10px;
+}
+
+.order h1{
+  position:relative;
+  font-size:40px;
+   animation-name:up;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  margin-left:2px;
+}
+
+
+.order h1{
+     color:red;
+     font-family:arial;
+     font-size:20px;
+  }
+@keyframes up {
+  0%   { top:0; }
+  100% { top:-20px; }
+}
+
+
+table img:hover{
+  animation: expand 2s infinite;
+  cursor: pointer;
+}
+
+
+@keyframes expand {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+
+@media (max-width:768px){
+  .order{
+    width:1ovw;
+    height:auto;
+    white-space: nowrap;
+  }
+
+  .order img{
+    width:150px; 
+    height : 150px;
+  }
+
+  .order h1{
+     color:red;
+     font-family:arial;
+     font-size:20px;
+  }
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+th{
+   background-color: rgb(151, 27, 27);
+  color:white;
+  font-family:arial;
+  font-style:cursive;
+}
+
+/* Make sure the wrapper can scroll on small screens */
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Optional: Prevent scrollbar from appearing unless needed */
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.menu table, th, tr, td {
+  border-spacing: 5px 2px;
+  border: 2px solid rgb(56, 8, 8);
+  border-collapse: collapse;
+}
+
+table {
+  width: 900px;
+  margin: 2px 10px;
+  margin-bottom:40px;
+}
+
+
+
+td {
+  white-space: nowrap;
+  border-spacing: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  table {
+    width: 700px;
+      margin:50px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  table {
+    min-width:400px;
+    max-width:420px;
+    overflow-x:scroll;
+    min-height:auto;
+     margin:10px 50px;
+  }
+
+  table,tr,th{
+
+    max-width:250px;
+    white-space: nowrap;
+  }
+
+  td{
+    width:150px;
+    padding:5px;
+  }
+
+  img{
+    width:70px;
+    height:70px;
+  }
+
+  p{
+    font-size:1.5vw;
+  }
+}
+@media (max-width: 400px) {
+  table {
+    min-width: 30px;           /* ✅ allow the table to grow */
+    width: auto;                /* ✅ don't force 100vw */
+    border-collapse: separate;
+    margin-right: auto;
+    margin-left: auto;
+    white-space:wrap;
+  }
+
+  .menu{
+    overflow-x:scroll;
+  }
+
+  img{
+    width:50px;
+    height:50px;
+  }
+
+   td, tr, th {
+    white-space: nowrap;
+    text-align: center;     /* ✅ aligns text properly */
+    vertical-align: middle; /* ✅ centers vertically */
+     min-width: 80px;
+   }
+
+  td {
+      /* ✅ adds space inside each cell */
+    white-space: nowrap;
+  }
+
+  p {
+    font-size: 1.5vw;
+  }
+}
